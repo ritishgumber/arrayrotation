@@ -2,49 +2,58 @@
 #include<stdio.h>
 void main()
 {
-int x,k,i,r,e[10],a[10],d[10],t;
+int y,x,k,l,i,m,r,t;
+int a[10],e[10],d[10];
 char c[10];
-scanf("%d",&t);
+clrscr();
+scanf("%d %d",&t,&m);
 for(i=0;i<t;i++)
 {
 scanf("%d",&a[i]);
 }
-for(i=0;i<t;i++)
+for(i=0;i<m;i++)
 {
-scanf("%c %d",&c[i],&d[i]);
+c[i]=getche();
+scanf("%d",&d[i]);
 }
-for(r=0;r<t;i++)
+
+for(r=0;r<m;r++)
 {
-switch(c[r])
-{ x=d[r];
-case 'r':{
-	  printf("%d",a[x+1]);
+l=c[r];
+x=d[r];
+switch(l)
+{
+case 114 :{
+	  printf("\n  %d",a[x-1]);
 	  break;
 	  }
-case 'c':for(i=0;i<5-x;i++)
+case 99 :{
+	for(i=0,y=x;i<t-x;i++,y++)
 	{
-	e[i]=a[x];
-	x++;
+	e[i]=a[y];
 	}
 	for(k=0;k<x;k++)
-	{e[i]=a[k];
+	{
+	e[i]=a[k];
 	i++;
-	}
-	for(k=0;k<5;k++)
+	}for(k=0;k<t;k++)
+	{printf("   %d",e[k]);}
+	for(k=0;k<t;k++)
 	a[k]=e[k];
-	break;
-case 'a':for(i=0;i<x;i++)
-	{e[i]=a[4-i];
+	break;}
+case 97 :{for(i=0,y=x;i<x;i++)
+	{e[i]=a[t-y+i];
 	}
-	for(k=0;k<5-x;k++)
+	for(k=0;k<t-x;k++,i++)
 	{
 	e[i]=a[k];
 	}
-	for(k=0;k<5;k++)
+	for(k=0;k<t;k++)
 	{
 	a[k]=e[k];
-	}
+	}for(k=0;k<t;k++)
+	printf(" \n %d",a[k]);
 	break;
-}   }
+}}   }
 getch();
 }
